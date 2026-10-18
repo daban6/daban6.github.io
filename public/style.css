@@ -1,0 +1,199 @@
+@font-face {
+  font-family: "Libron";
+  src: url("/fonts/libron/Libron-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Jakarta";
+  src: url("/fonts/jakarta/PlusJakartaSans-VariableFont_wght.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0e0e0e;
+  --fg: #e8e6e3;
+  --muted: #7a7671;
+  --rule: #1f1e1c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 16px/1.6 "Jakarta", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+main {
+  width: 100%;
+  max-width: 24rem;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-family: "Libron", Georgia, serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.bio {
+  margin: 0;
+  text-wrap: pretty;
+  color: var(--muted);
+}
+
+h2 {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+section {
+  margin-top: 32px;
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  color: inherit;
+  text-decoration: none;
+}
+
+.project span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project .name {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.project .desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.project svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--muted);
+  opacity: 0.7;
+  transition: color 150ms, opacity 150ms;
+}
+
+.project:hover svg,
+.project:focus-visible svg {
+  color: var(--fg);
+  opacity: 1;
+}
+
+.project:hover .name {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.contact {
+  display: block;
+  width: max-content;
+  margin-top: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.contact svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  transition: opacity 150ms;
+}
+
+.contact:hover svg,
+.contact:focus-visible svg {
+  opacity: 1;
+}
+
+a:focus-visible {
+  outline: 1px solid var(--muted);
+  outline-offset: 8px;
+}
+
+@media (max-width: 639px) {
+  body {
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  main {
+    max-width: 24rem;
+  }
+
+  .bio {
+    margin-bottom: 24px;
+  }
+
+  .project {
+    padding: 10px 0;
+  }
+
+  .project .name {
+    font-size: 17px;
+  }
+
+  .project .desc {
+    font-size: 13px;
+  }
+
+  .project span {
+    gap: 2px;
+  }
+}
+
+@media (min-width: 640px) {
+  body {
+    padding: 48px 24px;
+  }
+
+  .bio {
+    margin-bottom: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
